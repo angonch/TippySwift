@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipSegmentControl: UISegmentedControl!
+    @IBOutlet weak var calculationView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,20 @@ class ViewController: UIViewController {
         
         tipLabel.text = String.init(format: "$%.2f", tip)
         totalLabel.text = String.init(format: "$%.2f", total)
+    }
+    
+    @IBAction func onEditBegin(_ sender: Any) {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.billField.center.y += 100
+            self.calculationView.alpha = 0
+        }, completion: nil)
+    }
+    
+    @IBAction func onEditEnd(_ sender: Any) {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.billField.center.y -= 100
+            self.calculationView.alpha = 1
+        }, completion: nil)
     }
 }
 

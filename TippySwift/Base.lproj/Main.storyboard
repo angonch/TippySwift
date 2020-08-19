@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W8z-lF-42b">
+                            <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W8z-lF-42b">
                                 <rect key="frame" x="0.0" y="337" width="414" height="559"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -80,6 +80,9 @@
                                             <segment title="20%"/>
                                             <segment title="22%"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="onEdit:" destination="BYZ-38-t0r" eventType="valueChanged" id="8yN-GC-3w4"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -92,6 +95,8 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <action selector="onEdit:" destination="BYZ-38-t0r" eventType="editingChanged" id="RJT-3b-2EH"/>
+                                    <action selector="onEditBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="F8M-Lk-EbU"/>
+                                    <action selector="onEditEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="ncM-7y-V0R"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -105,6 +110,7 @@
                     <navigationItem key="navigationItem" title="Tippy" id="SnT-AE-w0e"/>
                     <connections>
                         <outlet property="billField" destination="gRP-Qq-Hj4" id="dMf-s8-d2v"/>
+                        <outlet property="calculationView" destination="W8z-lF-42b" id="Shz-dx-1tP"/>
                         <outlet property="tipLabel" destination="YOv-X6-gB1" id="BQM-zh-UZz"/>
                         <outlet property="tipSegmentControl" destination="r4X-Cg-tu4" id="r8Y-No-xFb"/>
                         <outlet property="totalLabel" destination="Xuy-wa-S2w" id="Pj2-rb-6mz"/>
